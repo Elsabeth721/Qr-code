@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ፍሬ ሃይማኖት ሚዲያ - Sunday School Social Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: rgba(0, 33, 77);      /* Deep blue */
+            --secondary: rgba(186, 120, 0);   /* Gold/orange */
+            --light: rgba(253, 254, 249);     /* Off-white */
+            --shadow: 0 6px 20px rgba(0, 33, 77, 0.15);
+            --border-radius: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans Ethiopic', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
+            color: var(--primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles with Quote */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px 35px;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(0, 33, 77, 0.95) 100%);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), rgba(186, 120, 0, 0.7));
+        }
+
+        .title {
+            color: var(--light);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Quote inside header */
+        .quote-container {
+            background: rgba(253, 254, 249, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+            position: relative;
+            border-left: 4px solid var(--secondary);
+            backdrop-filter: blur(8px);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quote-container::before {
+            content: "❝";
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            opacity: 0.8;
+        }
+
+        .quote-container::after {
+            content: "❞";
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            opacity: 0.8;
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--light);
+            line-height: 1.9;
+            font-weight: 500;
+            padding: 0 10px;
+        }
+
+        .author {
+            text-align: center;
+            font-style: italic;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .author::before {
+            content: "—";
+            margin-right: 8px;
+            color: rgba(253, 254, 249, 0.7);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 33, 77, 0.03) 0%, rgba(186, 120, 0, 0.03) 100%);
+            z-index: 0;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 33, 77, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .social-link:active {
+            transform: translateY(-4px);
+        }
+
+        .social-icon-container {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--light);
+            margin-right: 25px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-link:hover .social-icon-container {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        /* Using only the 3 colors for social icons */
+        .youtube .social-icon-container {
+            background: var(--primary);
+        }
+
+        .tiktok .social-icon-container {
+            background: var(--primary);
+        }
+
+        .instagram .social-icon-container {
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(0, 33, 77, 0.9) 100%);
+        }
+
+        .facebook .social-icon-container {
+            background: var(--primary);
+        }
+
+        .telegram .social-icon-container {
+            background: var(--primary);
+        }
+
+        /* Add secondary color accent on hover */
+        .social-link:hover .social-icon-container {
+            background: var(--secondary);
+        }
+
+        .social-info {
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .social-name i {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .social-name i {
+            opacity: 1;
+        }
+
+        .social-handle {
+            font-size: 1rem;
+            color: rgba(0, 33, 77, 0.8);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .social-desc {
+            font-size: 0.95rem;
+            color: rgba(0, 33, 77, 0.7);
+            line-height: 1.5;
+        }
+
+        .click-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--light);
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(186, 120, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: rgba(0, 33, 77, 0.7);
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border-top: 1px solid rgba(186, 120, 0, 0.2);
+        }
+
+        .footer p {
+            margin-bottom: 6px;
+        }
+
+        .footer small {
+            display: block;
+            margin-top: 10px;
+            color: rgba(0, 33, 77, 0.5);
+            font-size: 0.8rem;
+        }
+
+        .footer i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .quote-container {
+                padding: 20px 15px;
+            }
+            
+            .quote {
+                font-size: 1.2rem;
+                padding: 0 5px;
+            }
+            
+            .quote-container::before,
+            .quote-container::after {
+                font-size: 1.8rem;
+            }
+            
+            .author {
+                font-size: 1.1rem;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-link {
+                padding: 20px;
+            }
+            
+            .social-icon-container {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+                margin-right: 20px;
+            }
+            
+            .social-name {
+                font-size: 1.2rem;
+            }
+            
+            .click-indicator {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 30px 15px 25px;
+            }
+            
+            .title {
+                font-size: 1.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .quote {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+            
+            .author {
+                font-size: 1rem;
+            }
+            
+            .quote-container::before,
+            .quote-container::after {
+                font-size: 1.5rem;
+            }
+            
+            .social-icon-container {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+                margin-right: 15px;
+            }
+            
+            .social-name {
+                font-size: 1.1rem;
+            }
+            
+            .social-handle {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .title {
+                font-size: 1.7rem;
+            }
+            
+            .quote {
+                font-size: 0.95rem;
+            }
+            
+            .quote-container {
+                padding: 15px 10px;
+            }
+            
+            .social-link {
+                padding: 15px;
+            }
+            
+            .social-icon-container {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                margin-right: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">ፍሬ ሃይማኖት ሚዲያ</h1>
+            
+            <div class="quote-container">
+                <p class="quote">"ለነገዋ የቤተ ክርስቲያን ገጽታ የምትጨነቁ ከኾነ፤ ዛሬ የሰንበት ትምህርት ቤትን አገልግሎት በልባችኹ አኑሩ"</p>
+                <p class="author">ብፁዕ አቡነ ጎርጎርዮስ ካልዕ</p>
+            </div>
+        </header>
+        
+        <div class="social-links">
+            <a href="https://www.youtube.com/@FreHaymanotMedia23" target="_blank" class="social-link youtube">
+                <div class="click-indicator">ጠቅ ያድርጉ</div>
+                <div class="social-icon-container">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">YouTube <i class="fas fa-external-link-alt"></i></div>
+                    <div class="social-handle">@FreHaymanotMedia23</div>
+                    <div class="social-desc">ፍሬ ሃይማኖት ሚዲያ - Fre Haymanot Media</div>
+                </div>
+            </a>
+            
+            <a href="https://www.tiktok.com/@Frehaymanotmedia" target="_blank" class="social-link tiktok">
+                <div class="click-indicator">ጠቅ ያድርጉ</div>
+                <div class="social-icon-container">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">TikTok <i class="fas fa-external-link-alt"></i></div>
+                    <div class="social-handle">@Frehaymanotmedia</div>
+                    <div class="social-desc">frehaymanotmedia </div>
+                </div>
+            </a>
+            
+            <a href="https://www.instagram.com/frehaymanot_official?igsh=dGVmY2JxeGViMWJp" target="_blank" class="social-link instagram">
+                <div class="click-indicator">ጠቅ ያድርጉ</div>
+                <div class="social-icon-container">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Instagram <i class="fas fa-external-link-alt"></i></div>
+                    <div class="social-handle">@frehaymanot_official</div>
+                    <div class="social-desc">ፍሬ ሃይማኖት </div>
+                </div>
+            </a>
+            
+            <a href="https://www.facebook.com/FreHaymanote" target="_blank" class="social-link facebook">
+                <div class="click-indicator">ጠቅ ያድርጉ</div>
+                <div class="social-icon-container">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Facebook <i class="fas fa-external-link-alt"></i></div>
+                    <div class="social-handle">FreHaymanote</div>
+                    <div class="social-desc">የቦሌ ደብረ ገነት ቅዱስ ጊዮርጊስ እና ቅዱስ ገብርኤል የፍሬ ሃይማኖት ሰንበት ት/ቤት</div>
+                </div>
+            </a>
+            
+            <a href="https://t.me/gerjifrehaymanot" target="_blank" class="social-link telegram">
+                <div class="click-indicator">ጠቅ ያድርጉ</div>
+                <div class="social-icon-container">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Telegram <i class="fas fa-external-link-alt"></i></div>
+                    <div class="social-handle">@gerjifrehaymanot</div>
+                    <div class="social-desc">የቦሌ ደብረ ገነት ቅዱስ ጊዮርጊስ እና ቅዱስ ገብርኤል ካቴድራል የፍሬ ሃይማኖት ሰ/ት/ቤት</div>
+                </div>
+            </a>
+        </div>
+        
+        <footer class="footer">
+            <p>ፍሬ ሃይማኖት ሚዲያ - Sunday School Social Media</p>
+            <p>© 2023 All Rights Reserved</p>
+            <small><i class="fas fa-info-circle"></i> ማስታወሻ: ሚዲያ ላይ ለመግባት ከላይ ባሉት ማስፈንጠሪያዎች ላይ ይጫኑ</small>
+        </footer>
+    </div>
+
+    <script>
+        // Add click animation to social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Create a ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(186, 120, 0, 0.4);
+                    transform: scale(0);
+                    animation: ripple 0.7s ease-out;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                    pointer-events: none;
+                    z-index: 0;
+                `;
+                
+                this.appendChild(ripple);
+                
+                // Remove ripple after animation completes
+                setTimeout(() => {
+                    ripple.remove();
+                }, 700);
+                
+                // Show a brief feedback message
+                const originalTitle = this.querySelector('.social-name').textContent;
+                const platformName = originalTitle.replace(' <i class="fas fa-external-link-alt"></i>', '');
+                
+                // Create a temporary feedback message
+                const feedback = document.createElement('div');
+                feedback.innerHTML = `<i class="fas fa-external-link-alt"></i> ${platformName} ወደ መተግበሪያው ይወስድዎታል...`;
+                feedback.style.cssText = `
+                    position: fixed;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 33, 77, 0.95);
+                    color: rgba(253, 254, 249);
+                    padding: 15px 25px;
+                    border-radius: 12px;
+                    z-index: 1000;
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                    animation: fadeInOut 2.2s ease;
+                    font-weight: 600;
+                    border: 2px solid rgba(186, 120, 0, 0.5);
+                    backdrop-filter: blur(10px);
+                    max-width: 90%;
+                    text-align: center;
+                `;
+                
+                document.body.appendChild(feedback);
+                
+                setTimeout(() => {
+                    feedback.remove();
+                }, 2200);
+            });
+        });
+        
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+                15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.6s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                
+                // Animate social links in sequence
+                const socialLinks = document.querySelectorAll('.social-link');
+                socialLinks.forEach((link, index) => {
+                    link.style.opacity = '0';
+                    link.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        link.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        link.style.opacity = '1';
+                        link.style.transform = 'translateY(0)';
+                    }, 100 + (index * 100));
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
